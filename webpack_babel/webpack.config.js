@@ -1,28 +1,28 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.export = {
+module.exports = {
   name: "webpack_test",
   mode: "development",
 
   resolve: {
-    extensions: ["", ".js", ".jsx"],
+    modules: ["node_modules"],
+    extensions: [".js", ".jsx"],
   },
-  entry: "./src/index.js",
+  entry: {
+    app: "./src/index.js",
+  },
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "bundle.[hash].js",
+    filename: "[name].[chunkhash].js",
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          },
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
         },
       },
     ],
