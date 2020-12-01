@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  // mode: "development", // or "production"
+  mode: "development", // or "production"
   // devtool: "eval", // or "source-map" or "hidden-source-map"
 
   resolve: {
@@ -34,4 +34,12 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    host: "localhost",
+    contentBase: path.join(__dirname, "/dist"),
+    inline: true,
+    hot: true,
+    port: 5000,
+    open: true,
+  },
 };
