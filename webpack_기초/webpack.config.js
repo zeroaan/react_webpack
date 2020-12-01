@@ -3,8 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  name: "webpack_test",
-  mode: "development",
+  // mode: "development", // or "production"
+  // devtool: "eval", // or "source-map" or "hidden-source-map"
 
   resolve: {
     modules: ["node_modules"],
